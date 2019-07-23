@@ -53,6 +53,8 @@ namespace MainApplication
 
             while (line.Trim() != StringResources.STOP_COMMAND)
             {
+                _printService.PrintMessage(StringResources.INPUT_DISTANCE_MESSAGE);
+                line = Console.ReadLine();
                 LoopLogic(line);
             }
         }
@@ -65,9 +67,7 @@ namespace MainApplication
         /// <param name="line">User input</param>
         private void LoopLogic(string line)
         {
-            long distance;
-            _printService.PrintMessage(StringResources.INPUT_DISTANCE_MESSAGE);
-            line = Console.ReadLine();
+            long distance;            
 
             if (line.Trim() != StringResources.STOP_COMMAND && _inputValidationService.ValidateDistance(line, out distance))
             {

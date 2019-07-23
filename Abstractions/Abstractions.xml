@@ -98,7 +98,7 @@
         </member>
         <member name="T:Abstractions.Services.IStarShipService">
             <summary>
-            INterface for classes that are able to get list of ship details
+            Interface for classes that are able to get list of ship details
             </summary>
         </member>
         <member name="M:Abstractions.Services.IStarShipService.GetAllShipsInfoList">
