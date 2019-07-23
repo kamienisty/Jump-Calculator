@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:Abstractions.Models.IShipDetailsModel">
+            <summary>
+            Interface for class able to represent single ship's details
+            </summary>
+        </member>
+        <member name="P:Abstractions.Models.IShipDetailsModel.Name">
+            <summary>
+            Ship's name
+            </summary>
+        </member>
+        <member name="P:Abstractions.Models.IShipDetailsModel.Speed">
+            <summary>
+            Ship's speed in MGLT
+            </summary>
+        </member>
+        <member name="P:Abstractions.Models.IShipDetailsModel.NumericSpeed">
+            <summary>
+            Numric representation of Speed field
+            </summary>
+        </member>
+        <member name="P:Abstractions.Models.IShipDetailsModel.Supplies">
+            <summary>
+            String representation of timespan that sip's supplies will last for
+            </summary>
+        </member>
+        <member name="P:Abstractions.Models.IShipDetailsModel.HoursSuppliesLastFor">
+            <summary>
+            Representation of hours for which ship's supplies will slast for
+            </summary>
+        </member>
+        <member name="M:Abstractions.Models.IShipDetailsModel.NumberOfJumpsForDistance(System.Int64)">
+            <summary>
+            Method albe to calculate number of jumps needed for ship to travel given distance
+            </summary>
+            <param name="distance">Distance in MGLT to make calulations for</param>
+            <returns>Number of jumps to travel the distance</returns>
+        </member>
+        <member name="T:Abstractions.Services.IAPICallerService">
+            <summary>
+            Interface for class able to perform API call
+            </summary>
+        </member>
+        <member name="M:Abstractions.Services.IAPICallerService.CallAPI``1(System.String)">
+            <summary>
+            Method able to make api call and return call's result as a specific type
+            </summary>
+            <typeparam name="T">Type the result will be deserialized as</typeparam>
+            <param name="url">URL to make call to</param>
+            <returns>Call's result as given type</returns>
+        </member>
+        <member name="T:Abstractions.Services.IConsolePrintService">
+            <summary>
+            Interface for classes able to print messages to console
+            </summary>
+        </member>
+        <member name="M:Abstractions.Services.IConsolePrintService.PrintNumberOfJumpsForShips(System.Collections.Generic.List{Abstractions.Models.IShipDetailsModel},System.Int64)">
+            <summary>
+            Method able to print summary for number of jumps needed to travel given distance
+            </summary>
+            <param name="shipList">List of ships that will be included in summary</param>
+            <param name="distance">Distance that calculations were done for</param>
+        </member>
+        <member name="M:Abstractions.Services.IConsolePrintService.PrintMessage(System.String)">
+            <summary>
+            Method able to print message to console
+            </summary>
+            <param name="message">Message to print</param>
+        </member>
+        <member name="T:Abstractions.Services.IHoursSuppliesLastService">
+            <summary>
+            Interface for classes that will be able to fill HoursSuppliesLastFor in ship details
+            </summary>
+        </member>
+        <member name="M:Abstractions.Services.IHoursSuppliesLastService.FillSuppliesHoursForShip(Abstractions.Models.IShipDetailsModel)">
+            <summary>
+            Method able to calculate and fill HoursSuppliesLastFor
+            </summary>
+            <param name="shipDetails">Ship details to make calcualtions for</param>
+        </member>
+        <member name="T:Abstractions.Services.IInputValidationService">
+            <summary>
+            Interface for classes that are able to valudate user input
+            </summary>
+        </member>
+        <member name="M:Abstractions.Services.IInputValidationService.ValidateDistance(System.String,System.Int64@)">
+            <summary>
+            Method able to validate user given distance
+            </summary>
+            <param name="line">User input to validate</param>
+            <param name="distance">Output paramether for Int64 representation of input</param>
+            <returns>Returns true when input is valid</returns>
+        </member>
+        <member name="T:Abstractions.Services.IStarShipService">
+            <summary>
+            INterface for classes that are able to get list of ship details
+            </summary>
+        </member>
+        <member name="M:Abstractions.Services.IStarShipService.GetAllShipsInfoList">
+            <summary>
+            Method able to get ship details
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

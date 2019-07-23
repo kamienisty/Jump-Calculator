@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MainApplication</name>
+    </assembly>
+    <members>
+        <member name="T:MainApplication.CalculatorApplication">
+            <summary>
+            Class for executing the application
+            </summary>
+        </member>
+        <member name="M:MainApplication.CalculatorApplication.#ctor(Abstractions.Services.IStarShipService,Abstractions.Services.IHoursSuppliesLastService,Abstractions.Services.IConsolePrintService,Abstractions.Services.IInputValidationService)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="starShipService">Injected instance of IStarShipService implementation</param>
+            <param name="supplyService">Injected instance of IHoursSuppliesLastService implementation</param>
+            <param name="printService">Injected instance of IConsolePrintService implementation</param>
+            <param name="validationService">Injected instance of IInputValidationService implementation</param>
+        </member>
+        <member name="M:MainApplication.CalculatorApplication.Run">
+            <summary>
+            Method to begin application loop, checks if the stop command was issued
+            </summary>
+        </member>
+        <member name="M:MainApplication.CalculatorApplication.LoopLogic(System.String)">
+            <summary>
+            Method with logic for making calculations for number of jumps needed to travel given distance. 
+            Validates user input, makes call for all ship definitions and performs necessary calculations. 
+            Finally outputs result in alfabetically ordered fashion
+            </summary>
+            <param name="line">User input</param>
+        </member>
+        <member name="M:MainApplication.CalculatorApplication.GetShipList">
+            <summary>
+            Method for retriving llist of avaliable ships. If list is cached it will retrive it from SharedMemoryCache, otherwise an API call is made
+            </summary>
+            <returns>List of ship details</returns>
+        </member>
+    </members>
+</doc>

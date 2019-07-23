@@ -2,15 +2,21 @@
 
 using Abstractions.Services;
 using Abstractions.Models;
-using Services.MainApplication;
 using Services.Models;
 using MainApplication;
 using Services.Services;
 
 namespace AutofacContainerTypeRegistration
 {
+    /// <summary>
+    /// Class for registering types in Autofac
+    /// </summary>
     public static class AutofacContainer
     {
+        /// <summary>
+        /// Method for registering types
+        /// </summary>
+        /// <param name="builder">Autofac builder instance</param>
         public static void RegisterTypes(ContainerBuilder builder)
         {
             builder.RegisterType<CalculatorApplication>();

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CommonResources</name>
+    </assembly>
+    <members>
+        <member name="T:CommonResources.StringResources">
+            <summary>
+            Class with commonly used string values
+            </summary>
+        </member>
+    </members>
+</doc>

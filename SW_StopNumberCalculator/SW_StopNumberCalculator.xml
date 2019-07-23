@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SW_StopNumberCalculator</name>
+    </assembly>
+    <members>
+        <member name="T:SW_StopNumberCalculator.Program">
+            <summary>
+            Standard consol application class
+            </summary>
+        </member>
+        <member name="M:SW_StopNumberCalculator.Program.CompositionRoot">
+            <summary>
+            Method for building Autofac container
+            </summary>
+            <returns>Build Autofac container</returns>
+        </member>
+        <member name="M:SW_StopNumberCalculator.Program.Main(System.String[])">
+            <summary>
+            Standard Main method 
+            </summary>
+            <param name="args"></param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AutofacContainer</name>
+    </assembly>
+    <members>
+        <member name="T:AutofacContainerTypeRegistration.AutofacContainer">
+            <summary>
+            Class for registering types in Autofac
+            </summary>
+        </member>
+        <member name="M:AutofacContainerTypeRegistration.AutofacContainer.RegisterTypes(Autofac.ContainerBuilder)">
+            <summary>
+            Method for registering types
+            </summary>
+            <param name="builder">Autofac builder instance</param>
+        </member>
+    </members>
+</doc>

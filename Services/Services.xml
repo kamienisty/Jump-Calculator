@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Services</name>
+    </assembly>
+    <members>
+        <member name="T:Services.Models.ShipDetailsModel">
+            <summary>
+            Model for representing details of a single ship
+            </summary>
+        </member>
+        <member name="P:Services.Models.ShipDetailsModel.Name">
+            <summary>
+            Ship's name
+            </summary>
+        </member>
+        <member name="P:Services.Models.ShipDetailsModel.Speed">
+            <summary>
+            Ship's speed in MGLT (mega light years per hour)
+            </summary>
+        </member>
+        <member name="P:Services.Models.ShipDetailsModel.Supplies">
+            <summary>
+            String representation of time that ship's supplies will last for
+            </summary>
+        </member>
+        <member name="P:Services.Models.ShipDetailsModel.NumericSpeed">
+            <summary>
+            Int32 representation of Speed field
+            </summary>
+        </member>
+        <member name="P:Services.Models.ShipDetailsModel.HoursSuppliesLastFor">
+            <summary>
+            Number of hours the ship's supplies will last for
+            </summary>
+        </member>
+        <member name="M:Services.Models.ShipDetailsModel.NumberOfJumpsForDistance(System.Int64)">
+            <summary>
+            Method to calculate how many jumps are necessary to travel given distance
+            </summary>
+            <param name="distance">Distance to make calculation for</param>
+            <returns>Number of jumps to travel the distance</returns>
+        </member>
+        <member name="T:Services.Models.ShipDetailsPageModel">
+            <summary>
+            Model for result of API call to https://swapi.co/api/starships, represents single page of results
+            </summary>
+        </member>
+        <member name="P:Services.Models.ShipDetailsPageModel.Count">
+            <summary>
+            Total number of results on all pages
+            </summary>
+        </member>
+        <member name="P:Services.Models.ShipDetailsPageModel.Next">
+            <summary>
+            URL to next page of results
+            </summary>
+        </member>
+        <member name="P:Services.Models.ShipDetailsPageModel.Results">
+            <summary>
+            List of ship details on current page
+            </summary>
+        </member>
+        <member name="T:Services.Services.APICallerService">
+            <summary>
+            Generic class for calling API
+            </summary>
+        </member>
+        <member name="M:Services.Services.APICallerService.#ctor(System.Net.Http.HttpClient)">
+            <summary>
+            Default constructor with option to specify a HttpClient that will be used
+            </summary>
+            <param name="client">Optional paramether to specify client</param>
+        </member>
+        <member name="M:Services.Services.APICallerService.CallAPI``1(System.String)">
+            <summary>
+            Method to call API with given URL address and. Deserializes result as specified type
+            </summary>
+            <typeparam name="T">Type that API call result should be deserialized as</typeparam>
+            <param name="url">URL to call</param>
+            <returns>Result of call as a specified type</returns>
+        </member>
+        <member name="T:Services.Services.ConsolePrintService">
+            <summary>
+            Service for outputting messages from application to system console
+            </summary>
+        </member>
+        <member name="M:Services.Services.ConsolePrintService.PrintMessage(System.String)">
+            <summary>
+            Method for printing message in a new console line
+            </summary>
+            <param name="message">Message to be printed</param>
+        </member>
+        <member name="M:Services.Services.ConsolePrintService.PrintNumberOfJumpsForShips(System.Collections.Generic.List{Abstractions.Models.IShipDetailsModel},System.Int64)">
+            <summary>
+            Method for printing summary of calculating the number of jumps needed to travel given distance
+            </summary>
+            <param name="shipList">List of all ships to print summary for</param>
+            <param name="distance">Distance that the calculations were performed for</param>
+        </member>
+        <member name="T:Services.Services.HoursSuppliesLastService">
+            <summary>
+            Class for filling up number of hours the ship's supplies will last for IShipDetailsModel
+            </summary>
+        </member>
+        <member name="M:Services.Services.HoursSuppliesLastService.#ctor">
+            <summary>
+            Default constructor, sets default values used in calculations
+            </summary>
+        </member>
+        <member name="M:Services.Services.HoursSuppliesLastService.FillSuppliesHoursForShip(Abstractions.Models.IShipDetailsModel)">
+            <summary>
+            Method to convert string values representing supplies to In32 representation of hours. Value is set in IShipDetailsModel from paramether 
+            </summary>
+            <param name="shipDetails">Ship model to use for calculations and fill it's HoursSuppliesLastFor filed</param>
+        </member>
+        <member name="T:Services.Services.InputValidationService">
+            <summary>
+            Validator for user inputed distance value
+            </summary>
+        </member>
+        <member name="M:Services.Services.InputValidationService.#ctor(Abstractions.Services.IConsolePrintService)">
+            <summary>
+            Class constructor
+            </summary>
+            <param name="printService">Injected instance of IConsolePrintService implementation</param>
+        </member>
+        <member name="M:Services.Services.InputValidationService.ValidateDistance(System.String,System.Int64@)">
+            <summary>
+            Main validation metchod for checking the distance value
+            </summary>
+            <param name="line">String input representing numerical distance</param>
+            <param name="distance">Output paramether for Int64 value from line</param>
+            <returns>Method returns true if input value was succesfully validated and parsed</returns>
+        </member>
+        <member name="M:Services.Services.InputValidationService.EmptyValueCheck(System.String)">
+            <summary>
+            Validator checking if the input value is an empty string
+            </summary>
+            <param name="line">String input representing numerical distance</param>
+            <returns>Method returns true if input value is not empty</returns>
+        </member>
+        <member name="M:Services.Services.InputValidationService.Int64Check(System.String,System.Int64@)">
+            <summary>
+            Validator checking if the input value is a proper Int64 value
+            </summary>
+            <param name="line">String input representing numerical distance</param>
+            <param name="distance">Output paramether for Int64 value from line</param>
+            <returns>Method returns true if input value is an Int64</returns>
+        </member>
+        <member name="T:Services.Services.StarShipService">
+            <summary>
+            Service for retriving list of all avaliable ships from swapi.co
+            </summary>
+        </member>
+        <member name="M:Services.Services.StarShipService.#ctor(Abstractions.Services.IAPICallerService)">
+            <summary>
+            Class constructor
+            </summary>
+            <param name="apiCaller">Injected instance of IAPICallerService implementation</param>
+        </member>
+        <member name="M:Services.Services.StarShipService.GetAllShipsInfoList">
+            <summary>
+            Calls swapi.co to retrive list of all ships
+            </summary>
+            <returns>List of all ships in swapi database</returns>
+        </member>
+        <member name="M:Services.Services.StarShipService.CallShipAPI(System.String)">
+            <summary>
+            Makes a call to default starships URL and all following pages of result. It concatenates the returned ship details into single list
+            </summary>
+            <param name="apiURL">Address that the api service will call</param>
+            <returns>List of ships returned from call and subsequent calls for all result pages</returns>
+        </member>
+    </members>
+</doc>
